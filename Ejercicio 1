@@ -38,3 +38,35 @@ int busquedaBinariaRecursiva(int arreglo[], int izquierda, int derecha, int valo
     }
     return -1; 
 }
+
+int main() {
+    int arreglo[] = {2, 4, 6, 23, 56, 79};
+    int n = sizeof(arreglo) / sizeof(arreglo[0]);
+
+    printf("Ingrese un valor entero: ");
+    int valor;
+    scanf("%d", &valor);
+
+    int posicionLineal = busquedaLineal(arreglo, n, valor);
+    if (posicionLineal != -1) {
+        printf("Búsqueda Lineal: El valor %d se encuentra en la posición %d del arreglo.\n", valor, posicionLineal);
+    } else {
+        printf("Búsqueda Lineal: El valor %d no se encontró en el arreglo.\n", valor);
+    }
+
+    int posicionBinaria = busquedaBinaria(arreglo, n, valor);
+    if (posicionBinaria != -1) {
+        printf("Búsqueda Binaria: El valor %d se encuentra en la posición %d del arreglo.\n", valor, posicionBinaria);
+    } else {
+        printf("Búsqueda Binaria: El valor %d no se encontró en el arreglo.\n", valor);
+    }
+
+    int posicionRecursiva = busquedaBinariaRecursiva(arreglo, 0, n - 1, valor);
+    if (posicionRecursiva != -1) {
+        printf("Búsqueda Binaria Recursiva: El valor %d se encuentra en la posición %d del arreglo.\n", valor, posicionRecursiva);
+    } else {
+        printf("Búsqueda Binaria Recursiva: El valor %d no se encontró en el arreglo.\n", valor);
+    }
+
+    return 0;
+}
